@@ -1,84 +1,144 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
+    color: #101010;
 }
 
 body {
     width: 100%;
     height: 100%;
+    display: grid;
+    grid-template-areas:"header header"
+                        "nav main"
+                        "nav footer";
+    grid-template-rows: 10vh 75vh 15vh;
+    grid-template-columns: 15vw 85vw;
 }
 
 header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-area: header;
     background-color: tomato;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    height: 10vh;
 }
 
-header > p {
+header > h1 {
+    display: inline;
     color: white;
-    grid-column: 1;
-    grid-row: 2;
-    font-size: 5vh;
     padding-left: 5vw;
 }
 
 .search-container {
-    grid-column: 2;
-    grid-row: 2;
-    justify-self: right;
-    align-self: center;
+    display: inline;
     padding-right: 5vw;
 }
- 
+
+nav {
+    grid-area: nav;
+    background-color: white;
+    padding-top: 3vh;
+    padding-left: 2vw;
+}
+
+ul{
+    list-style: none;
+}
+
+li {
+    padding-top: 2vh;
+}
+
+a {
+    text-decoration: none;
+}
+
 main {
-    background-color: lightgrey;
+    grid-area: main;
+    background-color: lightgray;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    height: 80vh;
-    gap: 5%
+    grid-template-areas:"video01 video02 video03 video04 video05"
+                        "video06 video07 video08 video09 video10";
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
 }
 
-footer {
-    background-color: grey;
-    height: 10vh;
-    align-self: start;
-    text-align: center;
-    font-size: 2vh;
-    padding-top: 2%;
+section{
+    padding: 2%;
 }
 
-article {
-    text-align: center;
+section#video01{
+    grid-area: video01;
+}
+
+section#video02{
+    grid-area: video02;
+}
+
+section#video03{
+    grid-area: video03;
+}
+
+section#video04{
+    grid-area: video04;
+}
+
+section#video05{
+    grid-area: video05;
+}
+
+section#video06{
+    grid-area: video06;
+}
+
+section#video07{
+    grid-area: video07;
+}
+
+section#video08{
+    grid-area: video08;
+}
+
+section#video09{
+    grid-area: video09;
+}
+
+section#video10{
+    grid-area: video10;
 }
 
 .thumbnail {
     width: 100%;
 }
 
-#first-thumb {
-    grid-row: 2;
-    grid-column: 2;
+footer {
+    grid-area: footer;
+    display: flex;
+    color: lightgray;
+    background-color: #101010;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.6em;
+    text-align: justify;
+    padding-right: 5vw;
+    padding-left: 5vw;
 }
 
-#second-thumb {
-    grid-row: 2;
-    grid-column: 3;
-}
-
-#third-thumb {
-    grid-row: 3;
-    grid-column: 2;
-}
-
-#fourth-thumb {
-    grid-row: 3;
-    grid-column: 3;
-}
-
-#player {
+section#playing-video {
     width: 100%;
-    grid-area: 2 / 2 / 4 / 4;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 100%;
+}
+
+div#esquerda{
+    grid-column: 1;
+    background-color: lime;
+}
+div#direita{
+    grid-column: 2;
+    background-color: maroon;
 }
