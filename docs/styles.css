@@ -63,6 +63,7 @@ main {
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(5, 1fr);
     align-items: center;
+    
 }
 
 section{
@@ -127,18 +128,45 @@ footer {
 }
 
 section#playing-video {
-    width: 100%;
+    grid-area: 1 / 1 / span 3 / span 5;
     height: 100%;
     display: grid;
-    grid-template-columns: 80% 20%;
-    grid-template-rows: 100%;
+    grid-template-areas:"video recomendados"
+                        "descricao recomendados";
+    grid-template-rows: 75% 25%;
+    grid-template-columns: 70% 30%;
+
+    
+    /*border:1px solid black;*/
 }
 
-div#esquerda{
-    grid-column: 1;
-    background-color: lime;
+div#video {
+    grid-area: video;
+    padding-top: 2%;
+    text-align: center;
 }
-div#direita{
-    grid-column: 2;
-    background-color: maroon;
+
+#video > video {
+    max-height: 100%;
+}
+
+div#reacao {
+    padding-right: 2%;
+    text-align: right;
+    font-weight: bold;
+}
+
+div#descricao {
+    grid-area: descricao;
+    padding-top: 2%;   
+}
+
+div#reacao {
+    padding-right: 2%;
+    text-align: right;
+}
+
+div#recomendados {
+    grid-area: recomendados;
+    background-color: pink;
 }
